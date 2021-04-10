@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″ />
+    <title>RSSReader</title>
+  </head>
+  <body id="body">
+    <header><h1>RSSReader</h1></header>
+    <main>
+      <div>
+        <input type="text" id="NewRSSInput" name="Test" />
+        <input type="button" value="Add New Feed" id="NewRSSBTN" />
+      </div>
+      <div>
+        <input type="button" value="Update Notices" id="UpdateRSS" />
+      </div>
+      <div>
+        <input type="text" id="SearchInput" /><input
+          type="button"
+          value="SearchNotice"
+          id="SearchBTN"
+        />
+      </div>
+      <div id="RSSOptionsContainer">
+        <select name="" id="SelectRSS">
+
+        </select>
+      </div>
+      <div>
+        Order By:
+        <select id="Selection">
+          <option value="Date">Date</option>
+          <option value="Title">Title</option>
+          <option value="Url">Url</option>
+          <option value="Description">Description</option>
+          <option value="Categories">Categories</option>
+        </select>
+      </div>
+      <div id="Content"></div>
+    </main>
+    <footer>
+      <p>Team:</p>
+      <ul>
+        Jorge Arturo Aguilar Solis
+      </ul>
+      <ul>
+        Eberth Francisco Mezeta Xool
+      </ul>
+      <ul>
+        Victor Manuel Lavelle Canton
+      </ul>
+    </footer>
+    <script src="index.js"></script>
+  </body>
+</html>
