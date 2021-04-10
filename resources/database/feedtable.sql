@@ -38,7 +38,7 @@ CREATE TABLE `feedtable` (
 --
 
 INSERT INTO `feedtable` (`idRSS`, `RSSLink`, `RSSTitle`) VALUES
-(45, 'http://expansion.mx/rss/nacional', 'Expansión - Nacional');
+(45, 'https://expansion.mx/rss/nacional', 'Expansión - Nacional');
 
 --
 -- Índices para tablas volcadas
@@ -48,7 +48,9 @@ INSERT INTO `feedtable` (`idRSS`, `RSSLink`, `RSSTitle`) VALUES
 -- Indices de la tabla `feedtable`
 --
 ALTER TABLE `feedtable`
-  ADD PRIMARY KEY (`idRSS`);
+  ADD PRIMARY KEY (`RSSLink`);
+
+ALTER TABLE `feedtable` ADD INDEX `rss_id_index` (`idRSS`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
