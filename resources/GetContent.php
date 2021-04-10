@@ -1,8 +1,8 @@
 <?php 
-include("DBConection.php");
+include("../resources/DBConection.php");
 $ID = $_REQUEST["data"];
 
-$Query = "SELECT * FROM noticias where idRSS= '$ID'";
+$Query = "SELECT * FROM noticias where idRSS= '$ID' order by fecha DESC";
 $execute = mysqli_query($con,$Query);
 $data= array();
 while ($row=mysqli_fetch_assoc($execute)){

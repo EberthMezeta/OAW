@@ -44,13 +44,11 @@
                             <button class="btn btn-primary btn-block btn-lg" id="NewRSSBTN" type="button">Add</button>
                         </div>
                     </div>
-
                     <div class="order-by">
-                        <span>RSS Channel:</span><select  id="SelectRSS"> </select>
                         <span>Order By:</span>
                         <select id="Selection">
                             <option value="Date"> Date (Newest to oldest)</option>
-                            <option value="Title" selected>Title</option>
+                            <option value="Title">Title</option>
                             <option value="Url">URL</option>
                             <option value="Description">Description</option>
                             <option value="Categories">Categories</option>
@@ -63,9 +61,15 @@
 
     <!-- ======= Main ======= -->
     <main>
+        <div id="RSSOptionsContainer">
+            <select name="" id="SelectRSS">
+
+            </select>
+        </div>
         <div id="Content">
 
         </div>
+
     </main>
 
 

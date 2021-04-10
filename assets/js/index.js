@@ -1,9 +1,10 @@
 let ArrayOfNews = new Array();
+let ArrayOfNewsSortedByDate = new Array()
 let MapSort = new Map();
 
 MapSort.set("Date", new SortByDate());
 MapSort.set("Title", new SortByTitle());
-MapSort.set("Url", new SortByURL());
+MapSort.set("URL", new SortByURL());
 MapSort.set("Description", new SortByDescription());
 MapSort.set("Categories", new SortByCategorie());
 
@@ -39,10 +40,12 @@ function loadContent(url) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
+	console.log(this.responseText)
       let data = JSON.parse(this.responseText);
       console.log(data);
       CreateNews(data);
       ArrayOfNews = data;
+	  ArrayOfNewsSortedByDate = JSON.parse(this.responseText);
     }
   };
   xhttp.open("GET", url, true);
@@ -57,6 +60,7 @@ function getNewBySelect(url, data) {
       console.log(data);
       CreateNews(data);
       ArrayOfNews = data;
+      ArrayOfNewsSortedByDate = JSON.parse(this.responseText);
     }
   };
   xhttp.open("POST", url + "?data=" + data, true);
@@ -65,18 +69,16 @@ function getNewBySelect(url, data) {
 
 function AddNewFeedRSS() {
   var xhttp = new XMLHttpRequest();
-  let data = document.getElementById("NewRSSInput").value;
+  let data = document.getElementById("insert-url").value;
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-      let data = JSON.parse(this.responseText);
-      console.log(data);
-      CreateNews(data);
-      ArrayOfNews = data;
+		console.log(this.responseText)
+
     }
   };
   xhttp.open("POST", "./resources/AddFeedRSS.php? url=" + data, true);
   xhttp.send();
-  LoadSelect();
+
 }
 
 
@@ -99,7 +101,6 @@ function LoadSelect() {
       let data = JSON.parse(this.responseText);
       console.log(data);
       CreateOptions(data);
-      ArrayOfNews = data;
     }
   };
   xhttp.open("GET", "./resources/CreateOption.php", true);
@@ -170,18 +171,9 @@ function SortByTitle() {
 }
 
 function SortByDate() {
-  this.sort = function () {
-    ArrayOfNews.sort(function (a, b) {
-      if (a.fecha.toLowerCase() > b.fecha.toLowerCase()) {
-        return 1;
-      }
-      if (a.fecha.toLowerCase() < b.fecha.toLowerCase()) {
-        return -1;
-      }
-      return 0;
-    });
-    CreateNews(ArrayOfNews);
-  };
+	  this.sort = function () {
+    CreateNews(ArrayOfNewsSortedByDate);
+	  }
 }
 
 function SortByDescription() {

@@ -1,5 +1,5 @@
 <?php
-include("DBConection.php");
+include("../resources/DBConection.php");
 
 $Query = "SELECT idRSS , RSStitle FROM feedtable";
 $execute = mysqli_query($con, $Query);

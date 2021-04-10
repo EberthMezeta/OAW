@@ -1,6 +1,6 @@
 <?php
 
-include("DBConection.php");
+include("../resources/DBConection.php");
 
 $Query = "SELECT * FROM `feedtable`";
 $execute = mysqli_query($con,$Query);
@@ -9,7 +9,7 @@ $arrayDatos = mysqli_fetch_array($execute);
 
     function getNews($FirstID){
         include("DBConection.php");
-        $Query = "SELECT fecha,titulo,enlace,descripcion,cat FROM `noticias` WHERE IdRSS='$FirstID' Order By fecha";
+        $Query = "SELECT fecha,titulo,enlace,descripcion,cat FROM `noticias` WHERE IdRSS='$FirstID' Order By fecha DESC";
         $execute = mysqli_query($con,$Query);
         $data = array();
         while ($row=mysqli_fetch_assoc($execute)){

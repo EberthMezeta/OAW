@@ -122,20 +122,11 @@ header {
 }
 
 .order-by {
-    margin-top: 2rem;
+    margin-top: 15px;
 }
 
 .order-by span {
     color: #000;
-    padding-left:2rem;
-}
-
-.order-by select {
-    color: #000;
-}
-
-#SelectRSS{
-    width: 9.8rem;
 }
 
 #footer {
@@ -219,18 +210,6 @@ header {
         font-size: 15px;
     }
 
-    .order-by {
-        margin-top:5px;
-    }
-
-    .order-by span {
-        padding-right:3rem;
-    }
-    
-    #SelectRSS{
-        width: 10.9rem;
-    }
-
     #NewRSSBTN {
         font-size: 15px;
         width: 35%;
@@ -268,5 +247,4 @@ header {
     #footer .footer-bottomtext {
         font-size: 12.5px;
     }
-
 }
