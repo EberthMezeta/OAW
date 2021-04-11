@@ -1,0 +1,250 @@
+body {
+    font-family: "Open Sans", sans-serif;
+}
+
+header {
+    transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+#header .form-row {
+    margin-top: -20px;
+}
+
+#navbar {
+    background-color: #2e2d2d;
+}
+
+.navbar-brand {
+    color: white !important;
+    transition: all 0.2s linear;
+}
+
+.navbar-brand:hover, .navbar-brand:active {
+    color: #2fa4e7!important;
+    transition: all 0.2s linear;
+}
+
+.navbar-right {
+    margin-right: 15px;
+}
+
+#SearchInput {
+    width: 60%;
+    border-radius: .3rem;
+    padding-left: 5px;
+    line-height: 1.5;
+    border: 1px solid #ced4da
+}
+
+#SearchInput:focus {
+    outline: none;
+}
+
+#SearchBTN {
+    padding: .1rem 1rem;
+    border: 1px solid #995309;
+    border-radius: 6px;
+    background-color: #d9750b;
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, .5);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset,
+        0 1px 3px rgba(0, 0, 0, .2);
+    background-image: linear-gradient(#f90 10%, #e76a00 100%);
+}
+
+#SearchBTN:hover,
+#SearchBTN:focus {
+    background-color: #e0811b;
+    background-image: linear-gradient(#f0a100 10%, #f70 100%);
+    outline: none;
+}
+
+#SearchBTN:active {
+    background-color: #cf6a00;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .2) inset;
+    background-image: linear-gradient(#f0a100 10%, #f70 100%);
+}
+
+
+#UpdateRSS {
+    padding: .1rem 1rem;
+    border: 1px solid #37960b;
+    border-radius: 6px;
+    background-color: #22973fcc;
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, .5);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset,
+        0 1px 3px rgba(0, 0, 0, .2);
+    background-image: linear-gradient(rgba(0, 255, 76, 0.568) 10%, #00e71f 100%);
+}
+
+#UpdateRSS:hover,
+#UpdateRSS:focus {
+    background-color: #22972c;
+    background-image: linear-gradient(#22973fcc 10%, #00e71f 100%);
+    outline: none;
+}
+
+#UpdateRSS:active {
+    background-color: #22972c;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .2) inset;
+    background-image: linear-gradient(#22973fcc 10%, #00e71f 100%);
+}
+
+#NewRSSBTN{
+    padding: .5rem 1rem;
+    border: 1px solid #099df3;
+    border-radius: 6px;
+    background-color: #07c7e0;
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, .5);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset,
+        0 1px 3px rgba(0, 0, 0, .2);
+    background-image: linear-gradient(#2fcbe7 10%, #00b9e7bd 100%);
+}
+
+#NewRSSBTN:hover,
+#NewRSSBTN:focus {
+    background-color: #2fa4e7;
+    background-image: linear-gradient(#2fcbe7 10%, #1ef6fd 100%);
+    outline: none;
+}
+
+#NewRSSBTN:active {
+    background-color: #07c7e0;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .2) inset;
+    background-image: linear-gradient(#2fcbe7 10%, #00b9e7bd 100%);
+}
+
+#title {
+    margin-top: 15px;
+}
+
+.order-by {
+    margin-top: 15px;
+}
+
+.order-by span {
+    color: #000;
+}
+
+#footer {
+    clear: both;
+    text-align: center;
+    color: #000;
+    position: fixed;
+    left: 0px;
+    bottom: 5px;
+    width: 100%;
+
+}
+
+.team-list ul {
+    padding: 0 0 0 0;
+    margin: 0px;
+    font-size: 13.5px;
+}
+
+.team-list li {
+    list-style-type: none;
+    padding-right: 5px;
+}
+
+#footer .footer-top {
+    background: rgba(158, 211, 255, 0.24);
+    border-top: 1px solid #cfcfceec;
+    border-bottom: 1px solid #cfcfceec;
+    padding: 20px 0 0 0;
+    height: 130px;
+}
+
+#footer .footer-top .footer-info {
+    margin-bottom: 15px;
+    align-items: center;
+    margin-left: 39%;
+}
+
+#footer .footer-top .footer-info h3 {
+    font-size: 22px;
+    line-height: 1;
+    font-weight: 700;
+    transition: all 0.2s linear;
+}
+
+#footer .footer-top .footer-info h3:hover{
+    color: #FF4D4D!important;
+    transition: all 0.2s linear;
+}
+
+#footer .footer-bottomtext {
+    text-align: center;
+    font-size: 13.5px;
+    color: #2e2d2d9f;
+    margin-left: 2.5%;
+}
+
+/*Responsive Design*/
+@media screen and (max-width: 768px) {
+
+    #title {
+        font-size: 25px;
+    }
+
+    .navbar-brand {
+        font-size: 15px;
+    }
+
+    #SearchInput {
+        font-size: 12px;
+        width: 100%;
+    }
+
+    #SearchBTN,
+    #UpdateRSS {
+        height: 25px;
+        font-size: 12px;
+    }
+
+    #insert-url {
+        font-size: 15px;
+    }
+
+    #NewRSSBTN {
+        font-size: 15px;
+        width: 35%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .order-by #Selection {
+        font-size: 13px;
+    }
+
+    .order-by span {
+        font-size: 13px;
+    }
+
+
+    #footer .footer-top {
+        height: 109px;
+    }
+
+    #footer .footer-top .footer-info {
+        margin-left: 0;
+    }
+
+    #footer .footer-top .footer-info h3 {
+        font-size: 15px;
+    }
+
+    .team-list ul {
+        padding: 0 0 0 0;
+        margin: 0px;
+        font-size: 12.5px;
+    }
+
+    #footer .footer-bottomtext {
+        font-size: 12.5px;
+    }
+}

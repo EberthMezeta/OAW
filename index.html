@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>RSS News Reader</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+
+    <!-- ======= Navbar ======= -->
+    <nav class="navbar navbar-light navbar-expand bg-light navigation-clean" id="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="#">RSS News Reader</a>
+            <div class="navbar-right">
+                <input type="text" id="SearchInput" name="Test" placeholder="Looking up for news?">
+                <input type="button" value="Search" id="SearchBTN" class="button">
+
+                <input type="button" value="Update News" id="UpdateRSS" />
+            </div>
+        </div>
+    </nav>
+
+    <!-- ======= Header ======= -->
+    <header class="text-center text-white masthead" id="header">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-9 mx-auto">
+                    <h1 id="title" class="mb-5">This is your personal RSS feed. Try it!</h1>
+                </div>
+                <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+
+                    <div class="form-row">
+                        <div class="col-12 col-md-9 mb-2 mb-md-0">
+                            <input class="form-control form-control-lg" id="insert-url" type="text"
+                                placeholder="Insert a URL here">
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <button class="btn btn-primary btn-block btn-lg" id="NewRSSBTN" type="button">Add</button>
+                        </div>
+                    </div>
+                    <div class="order-by">
+                        <span>Order By:</span>
+                        <select id="Selection">
+                            <option value="Date"> Date (Newest to oldest)</option>
+                            <option value="Title">Title</option>
+                            <option value="Url">URL</option>
+                            <option value="Description">Description</option>
+                            <option value="Categories">Categories</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ======= Main ======= -->
+    <main>
+        <div id="RSSOptionsContainer">
+            <select name="" id="SelectRSS">
+
+            </select>
+        </div>
+        <div id="Content">
+
+        </div>
+
+    </main>
+
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 footer-info">
+                        <a href="https://github.com/The-WebOnes" target="_blank">
+                            <h3 id="footer-title"><b>The Web Ones</b></h3>
+                        </a>
+                        <div class="team-list">
+                            <ul>
+                                <li><b>Jorge Arturo Aguilar Solís </b></li>
+
+                                <li><b>Víctor Manuel Lavalle Cantón </b></li>
+
+                                <li><b>Eberth Francisco Mezeta Xool </b></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="footer-bottomtext">
+                <strong><span>Web Apps Optimization</span></strong>. UADY 2021
+            </div>
+        </div>
+
+
+    </footer>
+    <script src="assets/js/index.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
