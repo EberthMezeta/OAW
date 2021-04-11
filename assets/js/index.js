@@ -165,8 +165,8 @@ function SearchNew(DatatoFind, ArrayNews) {
     }
   }
   if (ArrayResult.length > 0) {
+    content.style.textAlign = "left";
     CreateNews(ArrayResult);
-
   } else {
     content.style.fontSize = "25px";
     content.style.textAlign = "center";
