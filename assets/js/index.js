@@ -10,19 +10,22 @@ MapSort.set("Categories", new SortByCategorie());
 
 document.getElementById("NewRSSBTN").addEventListener("click", function () {
   AddNewFeedRSS();
-  loadContent("./resources/GetFeed.php");//Aqui deberia actualizar la vista despues de meter una nueva url
-  LoadSelect(); //Aqui se deberia actualizar el select porque estamos metiendo una nueva url
+  loadIn();
+  setTimeout(function(){ loadOut(); }, 2000);
 });
 
 document.getElementById("UpdateRSS").addEventListener("click", function () {
+  var content = document.getElementById("Content");
   let data = document.getElementById("SelectRSS").value;
   UpdateContent("./resources/UpdateFeed.php");
   getNewBySelect("./resources/GetContent.php", data);
+  content.style.textAlign = "left";
 });
 
 document.getElementById("SearchBTN").addEventListener("click", function () {
   let DataToFind = document.getElementById("SearchInput").value;
   SearchNew(DataToFind, ArrayOfNews);
+  document.getElementById("SearchInput").value = "";
 });
 
 document.getElementById("SelectRSS").addEventListener("change", function () {
@@ -36,16 +39,26 @@ document.getElementById("Selection").addEventListener("change", function () {
   Sort.sort();
 });
 
+function loadIn(){
+  let loading = document.getElementById("loading");
+  loading.style.display = "block";
+}
+
+function loadOut(){
+  let loading = document.getElementById("loading");
+  loading.style.display = "none";
+}
+
 function loadContent(url) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-	console.log(this.responseText)
+      console.log(this.responseText)
       let data = JSON.parse(this.responseText);
       console.log(data);
       CreateNews(data);
       ArrayOfNews = data;
-	  ArrayOfNewsSortedByDate = JSON.parse(this.responseText);
+      ArrayOfNewsSortedByDate = JSON.parse(this.responseText);
     }
   };
   xhttp.open("GET", url, true);
@@ -69,24 +82,25 @@ function getNewBySelect(url, data) {
 
 function AddNewFeedRSS() {
   var xhttp = new XMLHttpRequest();
+  let insert = document.getElementById("insert-url");
   let data = document.getElementById("insert-url").value;
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-		console.log(this.responseText)
-
-    }
+		LoadSelect(); //Aqui se deberia actualizar el select porque estamos metiendo una nueva url
+		loadContent("./resources/GetFeed.php");//Aqui deberia actualizar la vista despues de meter una nueva url
+   }
   };
   xhttp.open("POST", "./resources/AddFeedRSS.php? url=" + data, true);
   xhttp.send();
+  insert.value = "";
 
 }
 
-
-function UpdateContent(){
+function UpdateContent() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-    
+
     }
   };
   xhttp.open("GET", "./resources/UpdateFeed.php", true);
@@ -121,6 +135,7 @@ function CreateOptions(data) {
 }
 
 function CreateNews(data) {
+  var content = document.getElementById("Content");
   let Option = "";
   for (let i = 0; i < data.length; i++) {
     Option += '<div class="News">';
@@ -134,14 +149,16 @@ function CreateNews(data) {
       '">Read More...</a>' +
       "</p>";
     Option += "<h5>" + data[i].cat + "</h5>";
+    Option += "<hr>";
     Option += "</div>";
   }
-  document.getElementById("Content").innerHTML = Option;
+  content.innerHTML = Option;
+  content.style.textAlign = "justified";
 }
 
 function SearchNew(DatatoFind, ArrayNews) {
   let ArrayResult = new Array();
-
+  var content = document.getElementById("Content");
   for (let i = 0; i < ArrayNews.length; i++) {
     if (ArrayNews[i].titulo.includes(DatatoFind)) {
       ArrayResult.push(ArrayNews[i]);
@@ -149,8 +166,12 @@ function SearchNew(DatatoFind, ArrayNews) {
   }
   if (ArrayResult.length > 0) {
     CreateNews(ArrayResult);
+
   } else {
-    document.getElementById("Content").innerHTML =
+    content.style.fontSize = "25px";
+    content.style.textAlign = "center";
+    content.style.marginTop = "5rem";
+    content.innerHTML =
       "No se encontraron resultados";
   }
 }
@@ -171,9 +192,9 @@ function SortByTitle() {
 }
 
 function SortByDate() {
-	  this.sort = function () {
+  this.sort = function () {
     CreateNews(ArrayOfNewsSortedByDate);
-	  }
+  }
 }
 
 function SortByDescription() {

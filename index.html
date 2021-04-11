@@ -40,19 +40,26 @@
                             <input class="form-control form-control-lg" id="insert-url" type="text"
                                 placeholder="Insert a URL here">
                         </div>
-                        <div class="col-12 col-md-3">
+                       
+                        <div class="col-12 col-md-3" id="animation">
                             <button class="btn btn-primary btn-block btn-lg" id="NewRSSBTN" type="button">Add</button>
                         </div>
+                        <div class="preloader" id="loading"></div>
+                        
                     </div>
+                    
                     <div class="order-by">
-                        <span>Order By:</span>
-                        <select id="Selection">
-                            <option value="Date"> Date (Newest to oldest)</option>
-                            <option value="Title">Title</option>
-                            <option value="Url">URL</option>
-                            <option value="Description">Description</option>
-                            <option value="Categories">Categories</option>
-                        </select>
+                        <div class="filter-options"><span>RSS Channel:</span><select id="SelectRSS"> </select></div>
+                        <div class="filter-options">
+                            <span>Order By:</span>
+                            <select id="Selection">
+                                <option value="Title" selected>Title</option>
+                                <option value="Date"> Date (Newest to oldest)</option>
+                                <option value="Url">URL</option>
+                                <option value="Description">Description</option>
+                                <option value="Categories">Categories</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -61,15 +68,9 @@
 
     <!-- ======= Main ======= -->
     <main>
-        <div id="RSSOptionsContainer">
-            <select name="" id="SelectRSS">
-
-            </select>
-        </div>
         <div id="Content">
 
         </div>
-
     </main>
 
 

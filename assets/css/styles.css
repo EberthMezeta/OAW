@@ -20,8 +20,9 @@ header {
     transition: all 0.2s linear;
 }
 
-.navbar-brand:hover, .navbar-brand:active {
-    color: #2fa4e7!important;
+.navbar-brand:hover,
+.navbar-brand:active {
+    color: #2fa4e7 !important;
     transition: all 0.2s linear;
 }
 
@@ -92,12 +93,13 @@ header {
     background-image: linear-gradient(#22973fcc 10%, #00e71f 100%);
 }
 
-#NewRSSBTN{
+#NewRSSBTN {
     padding: .5rem 1rem;
     border: 1px solid #099df3;
     border-radius: 6px;
     background-color: #07c7e0;
     color: #fff;
+    transition: all 0.2s linear;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, .5);
     box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset,
         0 1px 3px rgba(0, 0, 0, .2);
@@ -106,27 +108,74 @@ header {
 
 #NewRSSBTN:hover,
 #NewRSSBTN:focus {
+    transition: all 0.2s linear;
     background-color: #2fa4e7;
     background-image: linear-gradient(#2fcbe7 10%, #1ef6fd 100%);
     outline: none;
+    transition: all 0.2s linear;
 }
 
 #NewRSSBTN:active {
+    transition: all 0.2s linear;
     background-color: #07c7e0;
     box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .2) inset;
     background-image: linear-gradient(#2fcbe7 10%, #00b9e7bd 100%);
 }
 
+
+.preloader {
+    width: 30px;
+    height: 30px;
+    border: 10px solid #eee;
+    border-top: 10px solid #666;
+    border-radius: 50%;
+    margin-left: 50%;
+    animation-name: spin;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    display: none;
+  }
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+
+
 #title {
     margin-top: 15px;
 }
 
+.filter-options {
+    display: inline;
+}
+
 .order-by {
-    margin-top: 15px;
+    margin-top: 2rem;
 }
 
 .order-by span {
     color: #000;
+    padding-left: 2rem;
+}
+
+.order-by select {
+    color: #000;
+    font-size: 15px;
+    width: fit-content;
+}
+
+.News {
+    margin: 2rem 8rem 0 8rem;
+}
+
+hr {
+    background-color: rgb(104, 104, 104);
 }
 
 #footer {
@@ -172,8 +221,8 @@ header {
     transition: all 0.2s linear;
 }
 
-#footer .footer-top .footer-info h3:hover{
-    color: #FF4D4D!important;
+#footer .footer-top .footer-info h3:hover {
+    color: #FF4D4D !important;
     transition: all 0.2s linear;
 }
 
@@ -183,6 +232,7 @@ header {
     color: #2e2d2d9f;
     margin-left: 2.5%;
 }
+
 
 /*Responsive Design*/
 @media screen and (max-width: 768px) {
@@ -212,12 +262,24 @@ header {
 
     #NewRSSBTN {
         font-size: 15px;
-        width: 35%;
+        width: 40%;
         margin-left: auto;
         margin-right: auto;
     }
 
-    .order-by #Selection {
+    .filter-options {
+        display: block;
+    }
+
+    .order-by {
+        margin-top: 5px;
+    }
+
+    .order-by span {
+        padding-right: 3rem;
+    }
+
+    .order-by select {
         font-size: 13px;
     }
 
@@ -225,6 +287,13 @@ header {
         font-size: 13px;
     }
 
+    #SelectRSS {
+        width: fit-content;
+    }
+
+    .News {
+        margin: 2rem 3rem 0 3rem;
+    }
 
     #footer .footer-top {
         height: 109px;
@@ -247,4 +316,5 @@ header {
     #footer .footer-bottomtext {
         font-size: 12.5px;
     }
+
 }
