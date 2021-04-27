@@ -2,111 +2,131 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>RSS News Reader</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>RSS News Reader</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700"
+    rel="stylesheet">
 </head>
 
 <body>
 
-    <!-- ======= Navbar ======= -->
-    <nav class="navbar navbar-light navbar-expand bg-light navigation-clean" id="navbar">
-        <div class="container">
-            <a class="navbar-brand" href="#">RSS News Reader</a>
-            <div class="navbar-right">
-                <input type="text" id="SearchInput" name="Test" placeholder="Looking up for news?">
-                <input type="button" value="Search" id="SearchBTN" class="button">
+  <!-- ======= Top Bar ======= -->
+  <section id="topbar" class="d-none d-lg-block">
+    <div class="container clearfix">
+      <div class="social-links float-right">
+        <a href="https://github.com/The-WebOnes/OAW"> <i class="fa fa-github"></i> Project Repository</a>
+      </div>
+    </div>
+  </section>
 
-                <input type="button" value="Update News" id="UpdateRSS" />
-            </div>
+  <!-- ======= Header ======= -->
+  <header id="header">
+    <div class="container">
+
+      <div id="logo" class="pull-left">
+        <!-- <h1><a href="index.html">RSS<span>Feed</span></a></h1>-->
+      </div>
+      <a href="index.html"><img src="assets/img/main/logo.gif" alt="RSS Feed"></a>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li> <a>RSS Channel:</a><select id="SelectRSS"> </select></li>
+          <li> <a>Order By:</a><select id="Selection">
+              <option value="Title">Title</option>
+              <option value="Date"> Date</option>
+              <option value="Url">URL</option>
+              <option value="Description">Description</option>
+              <option value="Categories">Categories</option>
+            </select>
+          </li>
+          <li>
+            <input type="text" id="SearchInput" name="Test" placeholder="Looking up for news?">
+            <button value="Search" id="SearchBTN" class="button"> <i class="fa fa-search"> <span> Search</span>
+              </i></button>
+          </li>
+          <li>
+            <button value="Search" id="UpdateRSS" class="button"> <i class="fa fa-refresh"> <span> Update</span>
+              </i></button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ======= Intro Section ======= -->
+  <section id="intro">
+
+    <div class="intro-content">
+      <h2>Welcome to your <span>RSS</span><br> News Feed!</h2>
+      <div>
+        <ul class="addNews">
+          <li> <input id="insert-url" type="text" placeholder="Insert a URL here"></li>
+          <li> <button id="NewRSSBTN" class="button"> <i class="fa fa-plus-circle"><span> Add</span> </i></button></li>
+          <div class="preloader" id="loading"></div>
+        </ul>
+      </div>
+    </div>
+
+  </section>
+
+  <main id="main">
+    <!--<div id="Content"> </div> -->
+      <div id="rssContainer">
+        <div class="list-group">
+        
+          <a href="#order-year" class="list-group-item" data-toggle="collapse">
+            <i class="fa fa-terminal"> </i> Ordered By Year
+          </a>
+          <div class="list-group collapse" id="order-year"></div>
+         
+          <a href="#order-month" class="list-group-item" data-toggle="collapse">
+            <i class="fa fa-terminal"> </i> Ordered By Month
+          </a>
+          <div class="list-group collapse" id="order-month"></div>
+          
+          <a href="#order-day" class="list-group-item" data-toggle="collapse">
+            <i class="fa fa-terminal"> </i> Ordered By Day
+          </a>
+          <div class="list-group collapse" id="order-day"></div>
         </div>
-    </nav>
+    </div>
+  </main>
 
-    <!-- ======= Header ======= -->
-    <header class="text-center text-white masthead" id="header">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-9 mx-auto">
-                    <h1 id="title" class="mb-5">This is your personal RSS feed. Try it!</h1>
-                </div>
-                <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <a href="https://github.com/The-WebOnes"> <strong>Web Ones</strong></a>. All Rights Reserved
+      </div>
+      <div class="credits">
+        Web Apps Optimization. <a>UADY 2021</a>
+      </div>
+    </div>
+  </footer>
 
-                    <div class="form-row">
-                        <div class="col-12 col-md-9 mb-2 mb-md-0">
-                            <input class="form-control form-control-lg" id="insert-url" type="text"
-                                placeholder="Insert a URL here">
-                        </div>
-                       
-                        <div class="col-12 col-md-3" id="animation">
-                            <button class="btn btn-primary btn-block btn-lg" id="NewRSSBTN" type="button">Add</button>
-                        </div>
-                        <div class="preloader" id="loading"></div>
-                        
-                    </div>
-                    
-                    <div class="order-by">
-                        <div class="filter-options"><span>RSS Channel:</span><select id="SelectRSS"> </select></div>
-                        <div class="filter-options">
-                            <span>Order By:</span>
-                            <select id="Selection">
-                                <option value="Title" selected>Title</option>
-                                <option value="Date"> Date (Newest to oldest)</option>
-                                <option value="Url">URL</option>
-                                <option value="Description">Description</option>
-                                <option value="Categories">Categories</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
-    <!-- ======= Main ======= -->
-    <main>
-        <div id="Content">
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="assets/vendor/wow/wow.min.js"></script>
+  <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="assets/vendor/jquery-sticky/jquery.sticky.js"></script>
+  <script src="assets/vendor/superfish/superfish.min.js"></script>
+  <script src="assets/js/main.js"></script>
 
-        </div>
-    </main>
-
-
-    <!-- ======= Footer ======= -->
-    <footer id="footer">
-        <div class="footer-top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 footer-info">
-                        <a href="https://github.com/The-WebOnes" target="_blank">
-                            <h3 id="footer-title"><b>The Web Ones</b></h3>
-                        </a>
-                        <div class="team-list">
-                            <ul>
-                                <li><b>Jorge Arturo Aguilar Solís </b></li>
-
-                                <li><b>Víctor Manuel Lavalle Cantón </b></li>
-
-                                <li><b>Eberth Francisco Mezeta Xool </b></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="footer-bottomtext">
-                <strong><span>Web Apps Optimization</span></strong>. UADY 2021
-            </div>
-        </div>
-
-
-    </footer>
-    <script src="assets/js/index.js"></script>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 
 </html>
