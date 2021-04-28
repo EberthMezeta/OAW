@@ -150,6 +150,8 @@
 
 })(jQuery);
 
+////////////////////////////////////////////////
+
 let ArrayOfNews = new Array();
 let ArrayOfNewsSortedByDate = new Array()
 let MapSort = new Map();
@@ -292,13 +294,13 @@ function CreateNews(data) {
   for (let i = 0; i < data.length; i++) {
     Option += '<div class="News">';
     Option += "<h3>" + data[i].titulo + "</h3>";
-    Option += '<h6> Fecha: " ' + data[i].fecha + '"</h6>';
+    Option += '<h6> <strong>Fecha: </strong> " ' + data[i].fecha + '"</h6>';
     Option +=
-      "<p>Descripción: " +
+      "<p> <strong>Descripción: </strong>" +
       data[i].descripcion +
       '<a href="' +
       data[i].enlace +
-      '">Read More...</a>' +
+      '"> Read More...</a>' +
       "</p>";
     Option += "<h5>" + data[i].cat + "</h5>";
     Option += "<hr>";
@@ -322,9 +324,10 @@ function SearchNew(DatatoFind, ArrayNews) {
   } else {
     content.style.fontSize = "25px";
     content.style.textAlign = "center";
-    content.style.marginTop = "5rem";
+    content.style.marginTop = "2rem";
+    content.style.marginBottom = "2rem";
     content.innerHTML =
-      "No se encontraron resultados";
+      "No results found";
   }
 }
 

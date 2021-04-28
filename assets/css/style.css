@@ -427,6 +427,47 @@ font-size: 14.5px;
   color: #0c2e8a;
 }
 
+/*--------------------------------------------------------------
+# Main
+--------------------------------------------------------------*/
+
+#main #rssContainer i {
+font-weight: bold;
+color: #0c2e8a;
+}
+
+#main a{
+  text-decoration: none;
+}
+
+#main .News{
+margin: 0 50px 0;
+}
+
+#main .News h3{
+  color: #0c2e8a;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#main .News h5{
+  color: #50d8af;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#main .News h6{
+  font-size: 17px;
+}
+
+#main .News p{
+  font-size: 17px;
+}
+
+#main .News a{
+  text-decoration: none;
+}
+
 /* Mobile Nav Toggle */
 #mobile-nav-toggle {
   position: fixed;
@@ -469,7 +510,7 @@ font-size: 14.5px;
 
 #mobile-nav ul {
   padding: 0;
-  margin: 0;
+  margin: 0 10px 0;
   list-style: none;
 }
 
@@ -481,7 +522,7 @@ font-size: 14.5px;
   color: #fff;
   font-size: 16px;
   overflow: hidden;
-  padding: 10px 22px 10px 15px;
+  padding: 10px 0 10px 0;
   position: relative;
   text-decoration: none;
   width: 100%;
@@ -494,24 +535,54 @@ font-size: 14.5px;
 }
 
 #mobile-nav ul li li {
-  padding-left: 30px;
+  padding: 20px 0 0 30px;
 }
 
-#mobile-nav ul .menu-has-children i {
-  position: absolute;
-  right: 0;
-  z-index: 99;
-  padding: 15px;
-  cursor: pointer;
+#mobile-nav ul select {
+  margin-bottom: 20px;
+}
+
+#mobile-nav span {
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
+}
+
+#mobile-nav #SearchInput {
+  margin-bottom: 5px;
+  border-radius: 5px;
+  border: 1px solid rgb(110, 110, 110);
+}
+
+#mobile-nav #SearchBTN {
+  margin-bottom: 20px;
+  font-size: 15.3px;
+  transition: 0.5s;
+  color: #fff;
+  background: #0c2e8a;
+  border: 2px solid #0c2e8a;
+  border-radius: 5px;
+  padding-right: 2px;
+}
+
+
+#mobile-nav #SearchBTN:hover {
+  background: #1f56ee;
   color: #fff;
 }
 
-#mobile-nav ul .menu-has-children i.fa-chevron-up {
-  color: #50d8af;
+#mobile-nav #UpdateRSS {
+  font-size: 15.3px;
+  transition: 0.5s;
+  color: #fff;
+  background: #1ec291;
+  border: 2px solid #1ec291;
+  border-radius: 5px;
+  padding-right: 2px;
 }
 
-#mobile-nav ul .menu-item-active {
-  color: #50d8af;
+#mobile-nav #UpdateRSS:hover {
+  background: #50d8af;
+  color: #fff;
 }
 
 #mobile-body-overly {
@@ -589,6 +660,15 @@ section {
 #footer .copyright {
   text-align: center;
   padding-top: 30px;
+}
+
+#footer .copyright a{
+color: #50d8af !important;
+text-decoration: none;
+}
+
+#footer .copyright a:hover{
+  color: #0c2e8a !important;
 }
 
 #footer .credits {
