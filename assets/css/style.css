@@ -468,6 +468,10 @@ margin: 0 50px 0;
   text-decoration: none;
 }
 
+#show-all, #grouped{
+  margin-left: 5rem;
+}
+
 /* Mobile Nav Toggle */
 #mobile-nav-toggle {
   position: fixed;

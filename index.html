@@ -25,7 +25,8 @@
   <section id="topbar" class="d-none d-lg-block">
     <div class="container clearfix">
       <div class="social-links float-right">
-        <a href="https://github.com/The-WebOnes/OAW" target="_blank"> <i class="fa fa-github"></i> Project Repository</a>
+        <a href="https://github.com/The-WebOnes/OAW" target="_blank"> <i class="fa fa-github"></i> Project
+          Repository</a>
       </div>
     </div>
   </section>
@@ -42,14 +43,6 @@
       <nav id="nav-menu-container">
         <ul class="nav-menu">
           <li> <a>RSS Channel:</a><select id="SelectRSS"> </select></li>
-          <!-- <li> <a>Order By:</a><select id="Selection">
-              <option value="Title">Title</option>
-              <option value="Date"> Date</option>
-              <option value="Url">URL</option>
-              <option value="Description">Description</option>
-              <option value="Categories">Categories</option>
-            </select>
-          </li> -->
           <li>
             <input type="text" id="SearchInput" name="Test" placeholder="Looking up for news?">
             <button value="Search" id="SearchBTN" class="button"> <i class="fa fa-search"> <span> Search</span>
@@ -82,26 +75,36 @@
 
   <main id="main">
     <!--<div id="Content"> </div> There should be a content div for each category -->
-      <div id="rssContainer">
-        <div class="list-group">
-        
-          <a href="#order-year" class="list-group-item" data-toggle="collapse">
-            <i class="fa fa-terminal"> </i> Ordered By Year
+    <div id="rssContainer">
+      <div class="list-group">
+
+        <a href="#order-year" class="list-group-item" data-toggle="collapse">
+          <i class="fa fa-terminal"> </i> News
+        </a>
+
+        <div class="list-group collapse" id="order-year">
+          <div id="Content"> </div>
+          <a href="#order-month" class="list-group-item" id="show-all" data-toggle="collapse">
+            <i class="fa fa-terminal"> </i> Show All
           </a>
-          <div class="list-group collapse" id="order-year">
-            <div id="Content"> </div>
-          </div>
-         
-          <a href="#order-month" class="list-group-item" data-toggle="collapse">
-            <i class="fa fa-terminal"> </i> Ordered By Month
-          </a>
-          <div class="list-group collapse" id="order-month"></div>
           
-          <a href="#order-day" class="list-group-item" data-toggle="collapse">
-            <i class="fa fa-terminal"> </i> Ordered By Day
+          <div class="list-group collapse" id="order-month">
+            <li> <a>Order By:</a><select id="Selection">
+              <option value="Title">Title</option>
+              <option value="Date"> Date</option>
+              <option value="Url">URL</option>
+              <option value="Description">Description</option>
+              <option value="Categories">Categories</option>
+            </select>
+          </li>
+          </div>
+
+          <a href="#order-day" class="list-group-item" id="grouped" data-toggle="collapse">
+            <i class="fa fa-terminal"> </i> Grouped
           </a>
           <div class="list-group collapse" id="order-day"></div>
         </div>
+      </div>
     </div>
   </main>
 
@@ -109,7 +112,7 @@
   <footer id="footer">
     <div class="container">
       <div class="copyright">
-       <a href="https://github.com/The-WebOnes" target="_blank"> <strong>The Web Ones.</strong></a> All Rights Reserved
+        <a href="https://github.com/The-WebOnes" target="_blank"> <strong>The Web Ones.</strong></a> All Rights Reserved
       </div>
       <div class="credits">
         Web Apps Optimization. <a>UADY 2021</a>
@@ -130,4 +133,5 @@
   <script src="assets/js/main.js"></script>
 
 </body>
+
 </html>
