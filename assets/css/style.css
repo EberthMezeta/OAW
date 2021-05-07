@@ -441,7 +441,7 @@ color: #0c2e8a;
 }
 
 #main .News{
-margin: 0 50px 0;
+margin: 0 5rem 1rem 5rem;
 }
 
 #main .News h3{
@@ -470,6 +470,17 @@ margin: 0 50px 0;
 
 #show-all, #grouped{
   margin-left: 5rem;
+}
+
+#nav-group{
+   /* Arriba | Derecha | Abajo | Izquierda */
+   margin: 1rem auto 1.5rem auto !important;
+}
+
+#order-by{
+margin: 1rem auto 2rem auto;
+justify-content: center;
+list-style: none;
 }
 
 /* Mobile Nav Toggle */

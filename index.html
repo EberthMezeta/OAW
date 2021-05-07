@@ -74,35 +74,40 @@
   </section>
 
   <main id="main">
-    <!--<div id="Content"> </div> There should be a content div for each category -->
     <div id="rssContainer">
       <div class="list-group">
 
         <a href="#order-year" class="list-group-item" data-toggle="collapse">
           <i class="fa fa-terminal"> </i> News
         </a>
-
         <div class="list-group collapse" id="order-year">
-          <div id="Content"> </div>
+
           <a href="#order-month" class="list-group-item" id="show-all" data-toggle="collapse">
             <i class="fa fa-terminal"> </i> Show All
           </a>
-          
           <div class="list-group collapse" id="order-month">
-            <li> <a>Order By:</a><select id="Selection">
-              <option value="Title">Title</option>
-              <option value="Date"> Date</option>
-              <option value="Url">URL</option>
-              <option value="Description">Description</option>
-              <option value="Categories">Categories</option>
-            </select>
-          </li>
+            <li id="order-by"> <a> <b>Order By:</b> </a><select id="Selection">
+                <option value="Title">Title</option>
+                <option value="Date"> Date</option>
+                <option value="Url">URL</option>
+                <option value="Description">Description</option>
+                <option value="Categories">Categories</option>
+              </select>
+            </li>
+            <div id="Content"> </div>
           </div>
 
           <a href="#order-day" class="list-group-item" id="grouped" data-toggle="collapse">
             <i class="fa fa-terminal"> </i> Grouped
           </a>
-          <div class="list-group collapse" id="order-day"></div>
+          <div class="list-group collapse" id="order-day">
+            <ul class="nav-menu" id="nav-group">
+              <li> <a>By Year</a></li>
+              <li> <a>By Month</a></li>
+              <li> <a>By Day</a></li>
+            </ul>
+            <div id="Content-grouped"> </div>
+          </div>
         </div>
       </div>
     </div>

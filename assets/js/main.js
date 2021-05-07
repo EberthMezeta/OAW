@@ -290,6 +290,7 @@ function CreateOptions(data) {
 
 function CreateNews(data) {
   var content = document.getElementById("Content");
+  var contentGrouped = document.getElementById("Content-grouped");
   let Option = "";
   for (let i = 0; i < data.length; i++) {
     Option += '<div class="News">';
@@ -308,6 +309,8 @@ function CreateNews(data) {
   }
   content.innerHTML = Option;
   content.style.textAlign = "left";
+  contentGrouped.innerHTML = Option;
+  contentGrouped.style.textAlign = "left";
 }
 
 function SearchNew(DatatoFind, ArrayNews) {
