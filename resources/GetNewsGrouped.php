@@ -25,7 +25,7 @@ function add_key_if_not_exists($key, &$array) {
 
 function get_news($id, $con){
     include("DBConection.php");
-    $query = "SELECT fecha,titulo,enlace,descripcion,cat FROM `noticias` WHERE IdRSS='$id' Order By fecha ASC"
+    $query = "SELECT fecha,titulo,enlace,descripcion,cat FROM `noticias` WHERE IdRSS='$id' Order By fecha ASC";
     $query_obj = mysqli_query($con,$query);
     $data_grouped_by_date = array();
     while ($row=mysqli_fetch_assoc($query_obj)){
