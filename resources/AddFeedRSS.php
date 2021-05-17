@@ -1,4 +1,5 @@
 <?php
+
 $url = $_REQUEST["url"];
 
 addRSS($url);
@@ -40,11 +41,37 @@ function addNews($feedURL)
             $stringCut = substr($description, 0, 200);
             $description = substr($stringCut, 0, strrpos($stringCut, ' ')) . '...';
         }
-
-        $stmt = $con->prepare("INSERT INTO noticias (idRSS,fecha,titulo,enlace,descripcion,cat) VALUES (?,?,?,?,?,?) ON DUPLICATE KEY UPDATE idRSS = idRSS;");
-        $stmt->bind_param("isssss", $irss, $date, $title,$link,$description,$categorie);
+		$dir_imagen = "";
+		try {
+			if($item -> children('media', true) != null && $item->children('media', true)->content != null && $item->children('media', true)->content->attributes() != null && isset($item->children('media', true)->content->attributes()->url) ){
+				$imageurl = (string)($item->children('media', true)->content->attributes()->url); 
+				$destdir = '../assets/img/';
+				$dir_imagen = substr($title, 0, 30) ."." .substr( $imageurl, strrpos( $imageurl, '.' )+1 );
+				$dir_imagen =  preg_replace('/\s+/', '', $dir_imagen);
+				if(!is_file($destdir.$dir_imagen)){
+					$result = getSslPage($imageurl);
+					file_put_contents($destdir.$dir_imagen, $result);    
+				}
+			}
+		} catch (Exception $e) {
+		}
+		$stmt = $con->prepare("INSERT INTO noticias (idRSS,fecha,titulo,enlace,descripcion,cat,dirimagen) VALUES (?,?,?,?,?,?,?) ON DUPLICATE KEY UPDATE idRSS = idRSS;");
+        $stmt->bind_param("issssss", $irss, $date, $title,$link,$description,$categorie,$dir_imagen);
         $stmt->execute() or dir(mysqli_error($con));
     }
+}
+
+function getSslPage($url) {
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+    curl_setopt($ch, CURLOPT_HEADER, false);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_REFERER, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+    $result = curl_exec($ch);
+    curl_close($ch);
+    return $result;
 }
 
 function addRSS($url){

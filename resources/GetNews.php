@@ -19,7 +19,7 @@ function get_feed_id($con) {
 }
 
 function get_news($FirstID, $con){
-    $Query = "SELECT fecha,titulo,enlace,descripcion,cat FROM `noticias` WHERE IdRSS='$FirstID' Order By fecha DESC";
+    $Query = "SELECT fecha,titulo,enlace,descripcion,cat,dirimagen FROM `noticias` WHERE IdRSS='$FirstID' Order By fecha DESC";
     $execute = mysqli_query($con,$Query);
     $data = array();
     while ($row=mysqli_fetch_assoc($execute)){
