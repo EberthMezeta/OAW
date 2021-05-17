@@ -258,7 +258,7 @@ function UpdateContent() {
     }
   };
   xhttp.open("GET", "./resources/UpdateFeed.php", true);
-  xhttp.send();
+  xhttp.send(); 
 }
 
 

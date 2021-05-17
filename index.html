@@ -7,13 +7,15 @@
 
   <title>RSS News Reader</title>
   <meta content="Welcome to our RSS Feed📰" name="description">
- 
+
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
   <link href="assets/css/style.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700"
+    rel="stylesheet">
 </head>
 
 <body>
@@ -74,36 +76,49 @@
     <div id="rssContainer">
       <div class="list-group">
 
-        <a href="#order-year" class="list-group-item" data-toggle="collapse">
-          <i class="fa fa-terminal"> </i> News
+        <a href="#show-news" class="list-group-item" data-toggle="collapse">
+          <i class="fa fa-terminal"> </i> Show All News
         </a>
-        <div class="list-group collapse" id="order-year">
+        <div class="list-group collapse" id="show-news">
+          <li id="order-by"> <a> <b>Order By:</b> </a><select id="Selection">
+              <option value="Title">Title</option>
+              <option value="Date"> Date</option>
+              <option value="Url">URL</option>
+              <option value="Description">Description</option>
+              <option value="Categories">Categories</option>
+            </select>
+          </li>
+          <div id="Content"> </div>
+        </div>
 
-          <a href="#order-month" class="list-group-item" id="show-all" data-toggle="collapse">
-            <i class="fa fa-terminal"> </i> Show All
+        <a href="#show-news-grouped" class="list-group-item" data-toggle="collapse">
+          <i class="fa fa-terminal"> </i> Show News Grouped
+        </a>
+        <div class="list-group collapse" id="show-news-grouped">
+
+          <a href="#show-2021" class="list-group-item" data-toggle="collapse">
+            <i class="fa fa-terminal"> </i> 2021
           </a>
-          <div class="list-group collapse" id="order-month">
-            <li id="order-by"> <a> <b>Order By:</b> </a><select id="Selection">
-                <option value="Title">Title</option>
-                <option value="Date"> Date</option>
-                <option value="Url">URL</option>
-                <option value="Description">Description</option>
-                <option value="Categories">Categories</option>
-              </select>
-            </li>
-            <div id="Content"> </div>
+          <div class="list-group collapse" id="show-2021">
+
+            <a href="#show-january" class="list-group-item" data-toggle="collapse">
+              <i class="fa fa-terminal"> </i> January
+            </a>
+            <div class="list-group collapse" id="show-january">
+
+              <a href="#show-january-01" class="list-group-item" data-toggle="collapse">
+                <i class="fa fa-terminal"> </i> 01
+              </a>
+              <div class="list-group collapse" id="show-january-01">
+  
+  
+              </div>
+
+
+            </div>
+
           </div>
-          <a href="#order-day" class="list-group-item" id="grouped" data-toggle="collapse">
-            <i class="fa fa-terminal"> </i> Show Grouped
-          </a>
-          <div class="list-group collapse" id="order-day">
-            <ul class="nav-menu" id="nav-group">
-              <li> <a>By Year</a></li>
-              <li> <a>By Month</a></li>
-              <li> <a>By Day</a></li>
-            </ul>
-            <div id="Content-grouped"> </div>
-          </div>
+
         </div>
       </div>
     </div>
