@@ -63,7 +63,7 @@
       <h2>Welcome to your <span>RSS</span><br> News Feed!</h2>
       <div>
         <ul class="addNews">
-          <li> <input id="insert-url" type="text" placeholder="Insert a URL here"></li>
+          <li> <input id="insert-url" type="text" placeholder=" Insert a URL here"></li>
           <li> <button id="NewRSSBTN" class="button"> <i class="fa fa-plus-circle"><span> Add</span> </i></button></li>
           <div class="preloader" id="loading"></div>
         </ul>
@@ -96,29 +96,21 @@
         </a>
         <div class="list-group collapse" id="show-news-grouped">
 
-          <a href="#show-2021" class="list-group-item" data-toggle="collapse">
-            <i class="fa fa-terminal"> </i> 2021
+          <a href="#show-years" class="list-group-item" id="2021" data-toggle="collapse">
+            <i class="fa fa-terminal"> </i> Years
           </a>
-          <div class="list-group collapse" id="show-2021">
+          <div class="list-group collapse" id="show-years">
 
-            <a href="#show-january" class="list-group-item" data-toggle="collapse">
-              <i class="fa fa-terminal"> </i> January
+            <a href="#show-months" class="list-group-item" id="jan-2021" data-toggle="collapse">
+              <i class="fa fa-terminal"> </i> Months
             </a>
-            <div class="list-group collapse" id="show-january">
-
-              <a href="#show-january-01" class="list-group-item" data-toggle="collapse">
-                <i class="fa fa-terminal"> </i> 01
-              </a>
-              <div class="list-group collapse" id="show-january-01">
-  
-  
-              </div>
-
-
+            <div class="list-group collapse" id="show-months">
+              <ul class="nav-menu nav-group" >
+                <!-- Aqui va lista de días -->
+                <li><a>01</a></li>
+              </ul>
             </div>
-
           </div>
-
         </div>
       </div>
     </div>
