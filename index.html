@@ -1,153 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>RSS News Reader</title>
+    <meta content="Welcome to our RSS Feed📰" name="description" />
 
-  <title>RSS News Reader</title>
-  <meta content="Welcome to our RSS Feed📰" name="description">
+    <link href="assets/img/favicon.png" rel="icon" />
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <link
+      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/vendor/font-awesome/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700"
+      rel="stylesheet"
+    />
+  </head>
 
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-  <link href="assets/css/style.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700"
-    rel="stylesheet">
-</head>
-
-<body>
-
-  <!-- ======= Top Bar ======= -->
-  <section id="topbar" class="d-none d-lg-block">
-    <div class="container clearfix">
-      <div class="social-links float-right">
-        <a href="https://github.com/The-WebOnes/OAW" target="_blank"> <i class="fa fa-github"></i> Project
-          Repository</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======= Header ======= -->
-  <header id="header">
-    <div class="container">
-
-      <div id="logo" class="pull-left">
-        <!-- <h1><a href="index.html">RSS<span>Feed</span></a></h1>-->
-      </div>
-      <a href="index.html"><img src="assets/img/main/logo.gif" alt="RSS Feed"></a>
-
-      <nav id="nav-menu-container">
-        <ul class="nav-menu">
-          <li> <a>RSS Channel:</a><select id="SelectRSS"> </select></li>
-          <li>
-            <input type="text" id="SearchInput" name="Test" placeholder="Looking up for news?">
-            <button value="Search" id="SearchBTN" class="button"> <i class="fa fa-search"> <span> Search</span>
-              </i></button>
-          </li>
-          <li>
-            <button value="Update" id="UpdateRSS" class="button"> <i class="fa fa-refresh"> <span> Update</span>
-              </i></button>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <!-- ======= Intro Section ======= -->
-  <section id="intro">
-
-    <div class="intro-content">
-      <h2>Welcome to your <span>RSS</span><br> News Feed!</h2>
-      <div>
-        <ul class="addNews">
-          <li> <input id="insert-url" type="text" placeholder="Insert a URL here"></li>
-          <li> <button id="NewRSSBTN" class="button"> <i class="fa fa-plus-circle"><span> Add</span> </i></button></li>
-          <div class="preloader" id="loading"></div>
-        </ul>
-      </div>
-    </div>
-
-  </section>
-
-  <main id="main">
-    <div id="rssContainer">
-      <div class="list-group">
-
-        <a href="#show-news" class="list-group-item" data-toggle="collapse">
-          <i class="fa fa-terminal"> </i> Show All News
-        </a>
-        <div class="list-group collapse" id="show-news">
-          <li id="order-by"> <a> <b>Order By:</b> </a><select id="Selection">
-              <option value="Title">Title</option>
-              <option value="Date"> Date</option>
-              <option value="Url">URL</option>
-              <option value="Description">Description</option>
-              <option value="Categories">Categories</option>
-            </select>
-          </li>
-          <div id="Content"> </div>
+  <body>
+    <!-- ======= Top Bar ======= -->
+    <section id="topbar" class="d-none d-lg-block">
+      <div class="container clearfix">
+        <div class="social-links float-right">
+          <a href="https://github.com/The-WebOnes/OAW" target="_blank">
+            <i class="fa fa-github"></i> Project Repository</a
+          >
         </div>
+      </div>
+    </section>
 
-        <a href="#show-news-grouped" class="list-group-item" data-toggle="collapse">
-          <i class="fa fa-terminal"> </i> Show News Grouped
-        </a>
-        <div class="list-group collapse" id="show-news-grouped">
+    <!-- ======= Header ======= -->
+    <header id="header">
+      <div class="container">
+        <div id="logo" class="pull-left">
+          <!-- <h1><a href="index.html">RSS<span>Feed</span></a></h1>-->
+        </div>
+        <a href="index.html"
+          ><img src="assets/img/main/logo.gif" alt="RSS Feed"
+        /></a>
 
-          <a href="#show-2021" class="list-group-item" data-toggle="collapse">
-            <i class="fa fa-terminal"> </i> 2021
+        <nav id="nav-menu-container">
+          <ul class="nav-menu">
+            <li>
+              <a>RSS Channel:</a
+              ><select id="SelectRSS"></select>
+            </li>
+            <li>
+              <input
+                type="text"
+                id="SearchInput"
+                name="Test"
+                placeholder="Looking up for news?"
+              />
+              <button value="Search" id="SearchBTN" class="button">
+                <i class="fa fa-search"> <span> Search</span> </i>
+              </button>
+            </li>
+            <li>
+              <button value="Update" id="UpdateRSS" class="button">
+                <i class="fa fa-refresh"> <span> Update</span> </i>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ======= Intro Section ======= -->
+    <section id="intro">
+      <div class="intro-content">
+        <h2>
+          Welcome to your <span>RSS</span><br />
+          News Feed!
+        </h2>
+        <div>
+          <ul class="addNews">
+            <li>
+              <input
+                id="insert-url"
+                type="text"
+                placeholder="Insert a URL here"
+              />
+            </li>
+            <li>
+              <button id="NewRSSBTN" class="button">
+                <i class="fa fa-plus-circle"><span> Add</span> </i>
+              </button>
+            </li>
+            <div class="preloader" id="loading"></div>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <main id="main">
+      <div id="rssContainer">
+        <div class="list-group">
+          <a href="#show-news" class="list-group-item" data-toggle="collapse">
+            <i class="fa fa-terminal"> </i> Show All News
           </a>
-          <div class="list-group collapse" id="show-2021">
-
-            <a href="#show-january" class="list-group-item" data-toggle="collapse">
-              <i class="fa fa-terminal"> </i> January
-            </a>
-            <div class="list-group collapse" id="show-january">
-
-              <a href="#show-january-01" class="list-group-item" data-toggle="collapse">
-                <i class="fa fa-terminal"> </i> 01
-              </a>
-              <div class="list-group collapse" id="show-january-01">
-  
-  
-              </div>
-
-
-            </div>
-
+          <div class="list-group collapse" id="show-news">
+            <li id="order-by">
+              <a> <b>Order By:</b> </a
+              ><select id="Selection">
+                <option value="Title">Title</option>
+                <option value="Date">Date</option>
+                <option value="Url">URL</option>
+                <option value="Description">Description</option>
+                <option value="Categories">Categories</option>
+              </select>
+            </li>
+            <div id="Content"></div>
           </div>
 
+          <a
+            href="#show-news-grouped"
+            class="list-group-item"
+            data-toggle="collapse"
+          >
+            <i class="fa fa-terminal"> </i> Show News Grouped
+          </a>
+          <div class="list-group collapse" id="show-news-grouped">
+            <!-- 
+            <a href="#show-2021" class="list-group-item" data-toggle="collapse">
+              <i class="fa fa-terminal"> </i> 2021
+            </a>
+            <div class="list-group collapse" id="show-2021">
+              <a
+                href="#show-january"
+                class="list-group-item"
+                data-toggle="collapse"
+              >
+                <i class="fa fa-terminal"> </i> January
+              </a>
+              <div class="list-group collapse" id="show-january">
+                <a
+                  href="#show-january-01"
+                  class="list-group-item"
+                  data-toggle="collapse"
+                >
+                  <i class="fa fa-terminal"> </i> 01
+                </a>
+                <div class="list-group collapse" id="show-january-01"></div>
+              </div> 
+            </div>-->
+          </div>
         </div>
       </div>
-    </div>
-  </main>
-
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
-    <div class="container">
-      <div class="copyright">
-        <a href="https://github.com/The-WebOnes" target="_blank"> <strong>The Web Ones.</strong></a> All Rights Reserved
+    </main>
+    
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+      <div class="container">
+        <div class="copyright">
+          <a href="https://github.com/The-WebOnes" target="_blank">
+            <strong>The Web Ones.</strong></a
+          >
+          All Rights Reserved
+        </div>
+        <div class="credits">Web Apps Optimization. <a>UADY 2021</a></div>
       </div>
-      <div class="credits">
-        Web Apps Optimization. <a>UADY 2021</a>
-      </div>
-    </div>
-  </footer>
+    </footer>
 
-  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/jquery/jquery.min.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-  <script src="assets/vendor/wow/wow.min.js"></script>
-  <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
-  <script src="assets/vendor/jquery-sticky/jquery.sticky.js"></script>
-  <script src="assets/vendor/superfish/superfish.min.js"></script>
-  <script src="assets/js/main.js"></script>
-
-</body>
-
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+    <script src="assets/vendor/wow/wow.min.js"></script>
+    <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+    <script src="assets/vendor/jquery-sticky/jquery.sticky.js"></script>
+    <script src="assets/vendor/superfish/superfish.min.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
 </html>

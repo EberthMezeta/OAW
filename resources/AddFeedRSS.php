@@ -54,6 +54,7 @@ function addNews($feedURL)
 				}
 			}
 		} catch (Exception $e) {
+            $dir_imagen= "";
 		}
 		$stmt = $con->prepare("INSERT INTO noticias (idRSS,fecha,titulo,enlace,descripcion,cat,dirimagen) VALUES (?,?,?,?,?,?,?) ON DUPLICATE KEY UPDATE idRSS = idRSS;");
         $stmt->bind_param("issssss", $irss, $date, $title,$link,$description,$categorie,$dir_imagen);

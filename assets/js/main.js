@@ -184,7 +184,7 @@ document.getElementById("SearchBTN").addEventListener("click", function () {
 
 document.getElementById("SelectRSS").addEventListener("change", function () {
   let data = document.getElementById("SelectRSS").value;
-  getNewBySelect("./resources/GetContent.php", data);
+  getNewBySelect("./resources/GetNews.php", data);
 });
 
 document.getElementById("Selection").addEventListener("change", function () {
@@ -230,7 +230,7 @@ function getNewBySelect(url, data) {
       ArrayOfNewsSortedByDate = JSON.parse(this.responseText);
     }
   };
-  xhttp.open("POST", url + "?data=" + data, true);
+  xhttp.open("GET", url + "?id=" + data, true);
   xhttp.send();
 }
 
@@ -241,10 +241,10 @@ function AddNewFeedRSS() {
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
 		LoadSelect(); //Aqui se deberia actualizar el select porque estamos metiendo una nueva url
-		loadContent("./resources/GetFeed.php");//Aqui deberia actualizar la vista despues de meter una nueva url
+		loadContent("./resources/GetNews.php");//Aqui deberia actualizar la vista despues de meter una nueva url
    }
   };
-  xhttp.open("POST", "./resources/AddFeedRSS.php? url=" + data, true);
+  xhttp.open("GET", "./resources/AddFeedRSS.php? url=" + data, true);
   xhttp.send();
   insert.value = "";
 
@@ -254,7 +254,7 @@ function UpdateContent() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-
+      alert(this.status);
     }
   };
   xhttp.open("GET", "./resources/UpdateFeed.php", true);
@@ -290,10 +290,12 @@ function CreateOptions(data) {
 
 function CreateNews(data) {
   var content = document.getElementById("Content");
-  var contentGrouped = document.getElementById("Content-grouped");
+  //var contentGrouped = document.getElementById("Content-grouped");
   let Option = "";
   for (let i = 0; i < data.length; i++) {
+    let url = encodeURIComponent(data[i].dirimagen);
     Option += '<div class="News">';
+    Option += `<img src = assets/img/${url} onerror='this.src="assets/img/main/Tri.png"'  width="50%" height="50% align="left""> `;
     Option += "<h3>" + data[i].titulo + "</h3>";
     Option += '<h6> <strong>Fecha: </strong> " ' + data[i].fecha + '"</h6>';
     Option +=
@@ -309,8 +311,8 @@ function CreateNews(data) {
   }
   content.innerHTML = Option;
   content.style.textAlign = "left";
-  contentGrouped.innerHTML = Option;
-  contentGrouped.style.textAlign = "left";
+  //contentGrouped.innerHTML = Option;
+  //contentGrouped.style.textAlign = "left";
 }
 
 function SearchNew(DatatoFind, ArrayNews) {
@@ -333,6 +335,8 @@ function SearchNew(DatatoFind, ArrayNews) {
       "No results found";
   }
 }
+
+//Sort Algorithms
 
 function SortByTitle() {
   this.sort = function () {
@@ -400,5 +404,5 @@ function SortByURL() {
   };
 }
 
-loadContent("./resources/GetFeed.php", "Content");
+loadContent("./resources/GetNews.php", "Content");
 LoadSelect();
