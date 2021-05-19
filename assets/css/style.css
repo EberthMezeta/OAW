@@ -384,6 +384,8 @@ font-size: 14.5px;
   border-radius: 5px;
   border: 1px solid rgb(110, 110, 110);
   font-size: 15.4px;
+  padding-left: 3px;
+  width: 9.8rem;
 }
 
 .nav-menu #SearchInput:focus {
@@ -468,14 +470,14 @@ margin: 0 5rem 1rem 5rem;
   text-decoration: none;
 }
 
-#show-all, #grouped{
-  margin-left: 5rem;
+#show-news-grouped{
+   padding-left: 2rem !important;
 }
 
-#nav-group{
+ .nav-group{
    /* Arriba | Derecha | Abajo | Izquierda */
-   margin: 1rem auto 1.5rem auto !important;
-}
+   margin: 1rem 3rem 1.5rem 3rem !important;
+} 
 
 #order-by{
 margin: 1rem auto 2rem auto;
