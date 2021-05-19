@@ -474,6 +474,23 @@ margin: 0 5rem 1rem 5rem;
    padding-left: 2rem !important;
 }
 
+.News img{
+  width: 20%;
+  height: 20%;
+  text-align: left;
+  margin-right: 2rem;
+}
+
+@media (max-width: 768px) {
+  .News img{
+    width: 50%;
+    height: 60%;
+    /* Arriba | Derecha | Abajo | Izquierda */
+    margin: 1rem auto 1rem auto ;
+    align-items: center;
+  }
+}
+
  .nav-group{
    /* Arriba | Derecha | Abajo | Izquierda */
    margin: 1rem 3rem 1.5rem 3rem !important;

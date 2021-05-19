@@ -45,7 +45,7 @@ function addNews($feedURL)
 		try {
 			if($item -> children('media', true) != null && $item->children('media', true)->content != null && $item->children('media', true)->content->attributes() != null && isset($item->children('media', true)->content->attributes()->url) ){
 				$imageurl = (string)($item->children('media', true)->content->attributes()->url); 
-				$destdir = '../assets/img/';
+				$destdir = '../assets/img/news/';
 				$dir_imagen = substr($title, 0, 30) ."." .substr( $imageurl, strrpos( $imageurl, '.' )+1 );
 				$dir_imagen =  preg_replace('/\s+/', '', $dir_imagen);
 				if(!is_file($destdir.$dir_imagen)){

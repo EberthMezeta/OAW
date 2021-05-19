@@ -165,7 +165,7 @@ MapSort.set("Categories", new SortByCategorie());
 document.getElementById("NewRSSBTN").addEventListener("click", function () {
   AddNewFeedRSS();
   loadIn();
-  setTimeout(function(){ loadOut(); }, 2000);
+  setTimeout(function(){ loadOut(); }, 9000);
 });
 
 document.getElementById("UpdateRSS").addEventListener("click", function () {
@@ -290,12 +290,11 @@ function CreateOptions(data) {
 
 function CreateNews(data) {
   var content = document.getElementById("Content");
-  //var contentGrouped = document.getElementById("Content-grouped");
   let Option = "";
   for (let i = 0; i < data.length; i++) {
     let url = encodeURIComponent(data[i].dirimagen);
     Option += '<div class="News">';
-    Option += `<img src = assets/img/news/${url} onerror='this.src="assets/img/main/Tri.png"'  width="50%" height="50% align="left""> `;
+    Option += `<div class="img-news"> <img src = assets/img/news/${url} onerror='this.src="assets/img/news/default.png"; this.style.width="13%"; this.style.height="13%"; this.style.marginRight="9.5%";' align="left""> </div> `;
     Option += "<h3>" + data[i].titulo + "</h3>";
     Option += '<h6> <strong>Fecha: </strong> " ' + data[i].fecha + '"</h6>';
     Option +=
