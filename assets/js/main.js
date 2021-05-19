@@ -172,7 +172,7 @@ document.getElementById("UpdateRSS").addEventListener("click", function () {
   var content = document.getElementById("Content");
   let data = document.getElementById("SelectRSS").value;
   UpdateContent("./resources/UpdateFeed.php");
-  getNewBySelect("./resources/GetContent.php", data);
+  getNewBySelect("./resources/GetNews.php", data);
   content.style.textAlign = "left";
 });
 
@@ -295,7 +295,7 @@ function CreateNews(data) {
   for (let i = 0; i < data.length; i++) {
     let url = encodeURIComponent(data[i].dirimagen);
     Option += '<div class="News">';
-    Option += `<img src = assets/img/${url} onerror='this.src="assets/img/main/Tri.png"'  width="50%" height="50% align="left""> `;
+    Option += `<img src = assets/img/news/${url} onerror='this.src="assets/img/main/Tri.png"'  width="50%" height="50% align="left""> `;
     Option += "<h3>" + data[i].titulo + "</h3>";
     Option += '<h6> <strong>Fecha: </strong> " ' + data[i].fecha + '"</h6>';
     Option +=
@@ -311,8 +311,6 @@ function CreateNews(data) {
   }
   content.innerHTML = Option;
   content.style.textAlign = "left";
-  //contentGrouped.innerHTML = Option;
-  //contentGrouped.style.textAlign = "left";
 }
 
 function SearchNew(DatatoFind, ArrayNews) {
