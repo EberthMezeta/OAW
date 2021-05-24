@@ -224,9 +224,9 @@ function loadContent(url) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-      console.log(this.responseText)
+      //console.log(this.responseText)
       let data = JSON.parse(this.responseText);
-      console.log(data);
+      //console.log(data);
       CreateNews(data);
       ArrayOfNews = data;
       ArrayOfNewsSortedByDate = JSON.parse(this.responseText);
@@ -240,9 +240,9 @@ function loadContentGrouped(url) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-      console.log(this.responseText)
+      //console.log(this.responseText)
       let data = JSON.parse(this.responseText);
-      console.log(data);
+      //console.log(data);
       CreateGroupedNews(data);
     }
   };
@@ -255,7 +255,7 @@ function getNewBySelectAllNews(url, data) {
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       let data = JSON.parse(this.responseText);
-      console.log(data);
+      //console.log(data);
       CreateNews(data);
       ArrayOfNews = data;
       ArrayOfNewsSortedByDate = JSON.parse(this.responseText);
@@ -270,7 +270,7 @@ function getNewBySelectGroupedNews(url, data) {
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       let data = JSON.parse(this.responseText);
-      console.log(data);
+      //console.log(data);
       CreateGroupedNews(data);
       
     }
@@ -299,11 +299,11 @@ function AddNewFeedRSS() {
 
 function UpdateContent() {
   var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function () {
+/*   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       alert(this.status);
     }
-  };
+  }; */
   xhttp.open("GET", "./resources/UpdateFeed.php", true);
   xhttp.send(); 
 }
@@ -314,7 +314,7 @@ function LoadSelect() {
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       let data = JSON.parse(this.responseText);
-      console.log(data);
+      //console.log(data);
       CreateOptions(data);
     }
   };
