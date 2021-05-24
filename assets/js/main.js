@@ -390,15 +390,16 @@ function CreateGroupedNews(DataJSON) {
     TemplateNews  += getTemplateHeaders(keyYear,"headingTwo",keyYear);
     
     const MonthsArray = Object.keys(DataJSON[keyYear]);
+    SortArray(MonthsArray);
     MonthsArray.forEach((keyMonth) => {
       TemplateNews  += getTemplateHeaders(keyYear+MapMonths.get(keyMonth),`heading${keyYear}`,MapMonths.get(keyMonth));
-     
-      const MonthsArray = Object.keys(DataJSON[keyYear][keyMonth]);
-      MonthsArray.forEach((keyDay)=>{
+      const DaysArray = Object.keys(DataJSON[keyYear][keyMonth]);
+      console.log(DaysArray);
+      SortArray(DaysArray);
+      DaysArray.forEach((keyDay)=>{
         TemplateNews  += getTemplateHeaders(keyYear+MapMonths.get(keyMonth)+keyDay,`heading${keyYear+MapMonths.get(keyMonth)}`,keyDay);
-        
-        const MonthsDay = Object.keys(DataJSON[keyYear][keyMonth][keyDay]);
-        MonthsDay.forEach((item)=>{
+        const News = Object.keys(DataJSON[keyYear][keyMonth][keyDay]);
+        News.forEach((item)=>{
          TemplateNews +=NewsFormat(DataJSON[keyYear][keyMonth][keyDay][item]);
         });
         TemplateNews += `   
@@ -521,6 +522,19 @@ function SortByURL() {
     });
     CreateNews(ArrayOfNews);
   };
+}
+
+function SortArray(ArrayKeys){
+  ArrayKeys.sort(function(a,b){
+    if (a > b) {
+      return 1;
+    }
+    if (a < b) {
+      return -1;
+    }
+    return 0;
+  });
+
 }
 
 loadContent("./resources/GetNews.php");
