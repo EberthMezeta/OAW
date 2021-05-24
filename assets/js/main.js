@@ -158,18 +158,18 @@ let MapSort = new Map();
 
 const MapMonths = new Map();
 
-MapMonths.set("01","Enero");
-MapMonths.set("02","Febrero");
-MapMonths.set("03","Marzo");
-MapMonths.set("04","Abril");
-MapMonths.set("05","Mayo");
-MapMonths.set("06","Junio");
-MapMonths.set("07","Julio");
-MapMonths.set("08","Agosto");
-MapMonths.set("09","Septiembre");
-MapMonths.set("10","Octubre");
-MapMonths.set("11","Noviembre");
-MapMonths.set("12","Diciembre");
+MapMonths.set("01","January");
+MapMonths.set("02","February");
+MapMonths.set("03","March");
+MapMonths.set("04","April");
+MapMonths.set("05","May");
+MapMonths.set("06","June");
+MapMonths.set("07","July");
+MapMonths.set("08","August");
+MapMonths.set("09","September");
+MapMonths.set("10","October");
+MapMonths.set("11","November");
+MapMonths.set("12","December");
 
 
 MapSort.set("Date", new SortByDate());
@@ -441,8 +441,9 @@ function getTemplateHeaders(Content,DataParent,textContent){
   let Template = `<div class="card">
   <div class="card-header" id="heading${Content}">
     <h5 class="mb-0">
-      <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse${Content}" aria-expanded="true" aria-controls="collapse${Content}">
-        ${textContent}
+      <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse${Content}" aria-expanded="true" aria-controls="collapse${Content}"> 
+      <i class="fa fa-terminal">&nbsp;</i>
+      ${textContent}
       </button>
     </h5>
   </div>

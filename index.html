@@ -72,42 +72,48 @@
 
   </section>
 
-  <main id="main">    
+  <main id="main">
     <div class="accordion" id="AccordionNews">
       <div class="card">
         <div class="card-header" id="headingOne">
           <h5 class="mb-0">
-            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+              aria-expanded="true" aria-controls="collapseOne"><i class="fa fa-newspaper-o">&nbsp;</i>
               Show All News
             </button>
           </h5>
         </div>
         <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#AccordionNews">
           <div class="card-body">
-            <li id="order-by"> <a> <b>Order By:</b> </a><select id="Selection">
-              <option value="Title">Title</option>
-              <option value="Date"> Date</option>
-              <option value="Url">URL</option>
-              <option value="Description">Description</option>
-              <option value="Categories">Categories</option>
-            </select>
-          </li>
-          <div id="Content"> </div>
+            <div class="order-by">
+              <ul>
+                <li> <a> <b>Order By:</b> </a><select id="Selection">
+                    <option value="Title">Title</option>
+                    <option value="Date"> Date</option>
+                    <option value="Url">URL</option>
+                    <option value="Description">Description</option>
+                    <option value="Categories">Categories</option>
+                  </select>
+                </li>
+              </ul>
+            </div>
+            <div id="Content"> </div>
           </div>
         </div>
       </div>
       <div class="card">
         <div class="card-header" id="headingTwo">
           <h5 class="mb-0">
-            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo"
+              aria-expanded="false" aria-controls="collapseTwo"> <i class="fa fa-newspaper-o">&nbsp;</i>
               Show Grouped News
             </button>
           </h5>
         </div>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#AccordionNews">
           <div class="card-body" id="ContentGroupedNews">
-            
-          
+
+
           </div>
         </div>
       </div>

@@ -496,10 +496,11 @@ margin: 0 5rem 1rem 5rem;
    margin: 1rem 3rem 1.5rem 3rem !important;
 } 
 
-#order-by{
-margin: 1rem auto 2rem auto;
-justify-content: center;
+.order-by ul li{
+text-align: center;
 list-style: none;
+text-decoration: none;
+padding-bottom: 2rem;
 }
 
 /* Mobile Nav Toggle */
