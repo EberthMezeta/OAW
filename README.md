@@ -8,4 +8,4 @@
 | <a href="https://github.com/artrune"> Jorge Arturo Aguilar Solís </a>| <a href="https://github.com/VictorLavalle"> Víctor Manuel Lavalle Cantón</a> | <a href="https://github.com/EberthMezeta"> Eberth Francisco Mezeta Xool </a> |
 
 # Example of how it works
- ![Eberth](https://i.ibb.co/vc4WKn0/How-it-works.gif)
+ ![Eberth](https://i.ibb.co/RD3wMKT/How-it-works.gif)
