@@ -156,9 +156,25 @@ let ArrayOfNews = new Array();
 let ArrayOfNewsSortedByDate = new Array()
 let MapSort = new Map();
 
+const MapMonths = new Map();
+
+MapMonths.set("01","Enero");
+MapMonths.set("02","Febrero");
+MapMonths.set("03","Marzo");
+MapMonths.set("04","Abril");
+MapMonths.set("05","Mayo");
+MapMonths.set("06","Junio");
+MapMonths.set("07","Julio");
+MapMonths.set("08","Agosto");
+MapMonths.set("09","Septiembre");
+MapMonths.set("10","Octubre");
+MapMonths.set("11","Noviembre");
+MapMonths.set("12","Diciembre");
+
+
 MapSort.set("Date", new SortByDate());
 MapSort.set("Title", new SortByTitle());
-MapSort.set("URL", new SortByURL());
+MapSort.set("Url", new SortByURL());
 MapSort.set("Description", new SortByDescription());
 MapSort.set("Categories", new SortByCategorie());
 
@@ -172,7 +188,7 @@ document.getElementById("UpdateRSS").addEventListener("click", function () {
   var content = document.getElementById("Content");
   let data = document.getElementById("SelectRSS").value;
   UpdateContent("./resources/UpdateFeed.php");
-  getNewBySelect("./resources/GetNews.php", data);
+  getNewBySelectAllNews("./resources/GetNews.php", data);
   content.style.textAlign = "left";
 });
 
@@ -184,7 +200,8 @@ document.getElementById("SearchBTN").addEventListener("click", function () {
 
 document.getElementById("SelectRSS").addEventListener("change", function () {
   let data = document.getElementById("SelectRSS").value;
-  getNewBySelect("./resources/GetNews.php", data);
+  getNewBySelectAllNews("./resources/GetNews.php", data);
+  getNewBySelectGroupedNews("./resources/GetNewsGrouped.php", data);
 });
 
 document.getElementById("Selection").addEventListener("change", function () {
@@ -219,7 +236,21 @@ function loadContent(url) {
   xhttp.send();
 }
 
-function getNewBySelect(url, data) {
+function loadContentGrouped(url) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      console.log(this.responseText)
+      let data = JSON.parse(this.responseText);
+      console.log(data);
+      CreateGroupedNews(data);
+    }
+  };
+  xhttp.open("GET", url, true);
+  xhttp.send();
+}
+
+function getNewBySelectAllNews(url, data) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
@@ -234,6 +265,21 @@ function getNewBySelect(url, data) {
   xhttp.send();
 }
 
+function getNewBySelectGroupedNews(url, data) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      let data = JSON.parse(this.responseText);
+      console.log(data);
+      CreateGroupedNews(data);
+      
+    }
+  };
+  xhttp.open("GET", url + "?id=" + data, true);
+  xhttp.send();
+}
+
+
 function AddNewFeedRSS() {
   var xhttp = new XMLHttpRequest();
   let insert = document.getElementById("insert-url");
@@ -242,6 +288,7 @@ function AddNewFeedRSS() {
     if (this.readyState == 4 && this.status == 200) {
 		LoadSelect(); //Aqui se deberia actualizar el select porque estamos metiendo una nueva url
 		loadContent("./resources/GetNews.php");//Aqui deberia actualizar la vista despues de meter una nueva url
+    loadContentGrouped("./resources/GetNewsGrouped.php");
    }
   };
   xhttp.open("GET", "./resources/AddFeedRSS.php? url=" + data, true);
@@ -333,6 +380,80 @@ function SearchNew(DatatoFind, ArrayNews) {
   }
 }
 
+
+function CreateGroupedNews(DataJSON) {
+  const lista = document.getElementById("ContentGroupedNews");
+  const YearsArray = Object.keys(DataJSON);
+  let TemplateNews = ``;
+  YearsArray.forEach((keyYear) => {
+
+    TemplateNews  += getTemplateHeaders(keyYear,"headingTwo",keyYear);
+    
+    const MonthsArray = Object.keys(DataJSON[keyYear]);
+    MonthsArray.forEach((keyMonth) => {
+      TemplateNews  += getTemplateHeaders(keyYear+MapMonths.get(keyMonth),`heading${keyYear}`,MapMonths.get(keyMonth));
+     
+      const MonthsArray = Object.keys(DataJSON[keyYear][keyMonth]);
+      MonthsArray.forEach((keyDay)=>{
+        TemplateNews  += getTemplateHeaders(keyYear+MapMonths.get(keyMonth)+keyDay,`heading${keyYear+MapMonths.get(keyMonth)}`,keyDay);
+        
+        const MonthsDay = Object.keys(DataJSON[keyYear][keyMonth][keyDay]);
+        MonthsDay.forEach((item)=>{
+         TemplateNews +=NewsFormat(DataJSON[keyYear][keyMonth][keyDay][item]);
+        });
+        TemplateNews += `   
+        </div>
+        </div>
+        </div>`;  
+      });
+      TemplateNews += `   
+        </div>
+        </div>
+        </div>`;  
+    });
+  
+    TemplateNews += `   
+        </div>
+    </div>
+  </div>`;  
+  });
+  lista.innerHTML = TemplateNews;
+
+}
+
+function NewsFormat(data){
+  let url = encodeURIComponent(data.dirimagen);
+  let NewsTemplate = `   
+  <div class="News">
+  <div class="img-news"> <img src = assets/img/news/${url} onerror='this.src="assets/img/news/default.png"; this.style.width="13%"; this.style.height="13%"; this.style.marginRight="9.5%";' align="left""> </div> 
+  <h3>${data.titulo}</h3>
+  <h6> <strong>Fecha: </strong> ${data.fecha}</h6>
+  <p> <strong>Descripción: </strong>${data.descripcion}<a href="${data.enlace}">Read More...</a></p>
+  <h5>${data.cat}</h5>
+  <hr>
+  </div>
+  `;
+  return NewsTemplate; 
+}
+
+
+function getTemplateHeaders(Content,DataParent,textContent){
+  let Template = `<div class="card">
+  <div class="card-header" id="heading${Content}">
+    <h5 class="mb-0">
+      <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse${Content}" aria-expanded="true" aria-controls="collapse${Content}">
+        ${textContent}
+      </button>
+    </h5>
+  </div>
+
+  <div id="collapse${Content}" class="collapse" aria-labelledby="heading${Content}" data-parent="#${DataParent}">
+    <div class="card-body">
+  `;
+  return Template;
+}
+
+
 //Sort Algorithms
 
 function SortByTitle() {
@@ -401,5 +522,6 @@ function SortByURL() {
   };
 }
 
-loadContent("./resources/GetNews.php", "Content");
+loadContent("./resources/GetNews.php");
+loadContentGrouped("./resources/GetNewsGrouped.php");
 LoadSelect();
