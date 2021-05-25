@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-04-2021 a las 10:05:21
+-- Tiempo de generación: 19-05-2021 a las 09:33:16
 -- Versión del servidor: 10.4.16-MariaDB
 -- Versión de PHP: 7.4.12
 
@@ -46,7 +46,8 @@ CREATE TABLE `noticias` (
   `titulo` varchar(100) NOT NULL,
   `enlace` varchar(400) NOT NULL,
   `descripcion` varchar(400) DEFAULT NULL,
-  `cat` varchar(200) DEFAULT NULL
+  `cat` varchar(200) DEFAULT NULL,
+  `dirimagen` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -57,15 +58,13 @@ CREATE TABLE `noticias` (
 -- Indices de la tabla `feedtable`
 --
 ALTER TABLE `feedtable`
-  ADD PRIMARY KEY (`RSSLink`),
-  ADD KEY `rss_id_index` (`idRSS`);
+  ADD PRIMARY KEY (`idRSS`);
 
 --
 -- Indices de la tabla `noticias`
 --
 ALTER TABLE `noticias`
-  ADD PRIMARY KEY (`enlace`),
-  ADD KEY `news_id_index` (`idnews`);
+  ADD PRIMARY KEY (`idnews`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -75,7 +74,7 @@ ALTER TABLE `noticias`
 -- AUTO_INCREMENT de la tabla `feedtable`
 --
 ALTER TABLE `feedtable`
-  MODIFY `idRSS` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idRSS` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT de la tabla `noticias`

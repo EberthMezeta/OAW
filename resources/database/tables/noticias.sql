@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-04-2021 a las 02:51:30
--- Versión del servidor: 10.4.17-MariaDB
--- Versión de PHP: 8.0.2
+-- Tiempo de generación: 19-05-2021 a las 09:28:01
+-- Versión del servidor: 10.4.16-MariaDB
+-- Versión de PHP: 7.4.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,19 +34,29 @@ CREATE TABLE `noticias` (
   `titulo` varchar(100) NOT NULL,
   `enlace` varchar(400) NOT NULL,
   `descripcion` varchar(400) DEFAULT NULL,
-  `cat` varchar(200) DEFAULT NULL
+  `cat` varchar(200) DEFAULT NULL,
+  `dirimagen` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Índices para tablas volcadas
+--
 
+--
 -- Indices de la tabla `noticias`
 --
 ALTER TABLE `noticias`
-  ADD PRIMARY KEY (`enlace`);
+  ADD PRIMARY KEY (`idnews`);
 
-ALTER TABLE `noticias` ADD INDEX `news_id_index` (`idnews`);
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
 
+--
+-- AUTO_INCREMENT de la tabla `noticias`
+--
 ALTER TABLE `noticias`
-  MODIFY `idnews` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=945;
+  MODIFY `idnews` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

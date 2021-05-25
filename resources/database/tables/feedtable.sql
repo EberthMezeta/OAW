@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-04-2021 a las 02:50:56
--- Versión del servidor: 10.4.17-MariaDB
--- Versión de PHP: 8.0.2
+-- Tiempo de generación: 19-05-2021 a las 09:27:47
+-- Versión del servidor: 10.4.16-MariaDB
+-- Versión de PHP: 7.4.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,13 +34,6 @@ CREATE TABLE `feedtable` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Volcado de datos para la tabla `feedtable`
---
-
-INSERT INTO `feedtable` (`idRSS`, `RSSLink`, `RSSTitle`) VALUES
-(45, 'https://expansion.mx/rss/nacional', 'Expansión - Nacional');
-
---
 -- Índices para tablas volcadas
 --
 
@@ -48,9 +41,7 @@ INSERT INTO `feedtable` (`idRSS`, `RSSLink`, `RSSTitle`) VALUES
 -- Indices de la tabla `feedtable`
 --
 ALTER TABLE `feedtable`
-  ADD PRIMARY KEY (`RSSLink`);
-
-ALTER TABLE `feedtable` ADD INDEX `rss_id_index` (`idRSS`);
+  ADD PRIMARY KEY (`idRSS`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -60,7 +51,7 @@ ALTER TABLE `feedtable` ADD INDEX `rss_id_index` (`idRSS`);
 -- AUTO_INCREMENT de la tabla `feedtable`
 --
 ALTER TABLE `feedtable`
-  MODIFY `idRSS` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `idRSS` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
