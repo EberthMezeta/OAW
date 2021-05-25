@@ -481,15 +481,37 @@ margin: 0 5rem 1rem 5rem;
   margin-right: 2rem;
 }
 
+/* tabletas y móvil */
 @media (max-width: 768px) {
+  #main .News{
+    margin: 0 3rem 1rem 3rem;
+  }
+
   .News img{
-    width: 50%;
+    width: 70%;
     height: 60%;
     /* Arriba | Derecha | Abajo | Izquierda */
-    margin: 1rem auto 1rem auto ;
-    align-items: center;
+    margin-left: 10%;
+  }
+
+  .News h3{
+    padding-top: 5rem;
+  }
+
+}
+
+/* pantallas grandes */
+@media (min-width: 1200px) {
+    #main .News{
+    margin: 2rem 15rem 1rem 15rem;
+  }
+
+  .News img{
+    width: 20%;
+    height: 20%;
   }
 }
+
 
  .nav-group{
    /* Arriba | Derecha | Abajo | Izquierda */

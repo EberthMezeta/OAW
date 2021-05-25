@@ -151,7 +151,6 @@
 })(jQuery);
 
 ////////////////////////////////////////////////
-
 let ArrayOfNews = new Array();
 let ArrayOfNewsSortedByDate = new Array()
 let MapSort = new Map();
@@ -171,7 +170,6 @@ MapMonths.set("10","October");
 MapMonths.set("11","November");
 MapMonths.set("12","December");
 
-
 MapSort.set("Date", new SortByDate());
 MapSort.set("Title", new SortByTitle());
 MapSort.set("Url", new SortByURL());
@@ -181,7 +179,6 @@ MapSort.set("Categories", new SortByCategorie());
 document.getElementById("NewRSSBTN").addEventListener("click", function () {
   AddNewFeedRSS();
   loadIn();
-  setTimeout(function(){ loadOut(); }, 9000);
 });
 
 document.getElementById("UpdateRSS").addEventListener("click", function () {
@@ -289,6 +286,7 @@ function AddNewFeedRSS() {
 		LoadSelect(); //Aqui se deberia actualizar el select porque estamos metiendo una nueva url
 		loadContent("./resources/GetNews.php");//Aqui deberia actualizar la vista despues de meter una nueva url
     loadContentGrouped("./resources/GetNewsGrouped.php");
+    loadOut();
    }
   };
   xhttp.open("GET", "./resources/AddFeedRSS.php? url=" + data, true);
