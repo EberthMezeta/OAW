@@ -2,132 +2,131 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>RSS News Reader</title>
-  <meta content="Welcome to our RSS Feed📰" name="description">
+    <title>RSS News Reader</title>
+    <meta content="Welcome to our RSS Feed📰" name="description">
 
-  <link href="assets/img/main/favicon.png" rel="icon">
-  <link href="assets/img/main/favicon.png" rel="apple-touch-icon">
-  <link href="assets/css/style.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
-  <script src="https://use.fontawesome.com/afed86958e.js"></script>
+    <link href="assets/img/main/favicon.png" rel="icon">
+    <link href="assets/img/main/favicon.png" rel="apple-touch-icon">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800|Montserrat:300,400,700" rel="stylesheet">
+    <script src="https://use.fontawesome.com/afed86958e.js"></script>
 
 </head>
 
 <body>
-  <section id="topbar" class="d-none d-lg-block">
-    <div class="container clearfix">
-      <div class="social-links float-right">
-        <a href="https://github.com/The-WebOnes/OAW" target="_blank"> <i class="fa fa-github"></i> Project
-          Repository</a>
-      </div>
-    </div>
-  </section>
-  
-  <header id="header">
-    <div class="container">
-      <a href="index.html"><img src="assets/img/main/logo.gif" alt="RSS Feed"></a>
-      <nav id="nav-menu-container">
-        <ul class="nav-menu">
-          <li> <a>RSS Channel:</a><select id="SelectRSS"> </select></li>
-          <li>
-            <input type="text" id="SearchInput" name="Test" placeholder="Looking up for news?">
-            <button value="Search" id="SearchBTN" class="button"> <i class="fa fa-search"> <span> Search</span>
-              </i></button>
-          </li>
-          <li>
-            <button value="Update" id="UpdateRSS" class="button"> <i class="fa fa-refresh"> <span> Update</span>
-              </i></button>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    <section id="topbar" class="d-none d-lg-block">
+        <div class="container clearfix">
+            <div class="social-links float-right">
+                <a href="https://github.com/The-WebOnes/OAW" target="_blank"> <i class="fa fa-github"></i> Project Repository
+                </a>
+            </div>
+        </div>
+    </section>
 
-  <section id="intro">
-    <div class="intro-content">
-      <h2>Welcome to your <span>RSS</span><br> News Feed!</h2>
-      <div>
-        <ul class="addNews">
-          <li> <input id="insert-url" type="text" placeholder=" Insert a URL here"></li>
-          <li> <button id="NewRSSBTN" class="button"> <i class="fa fa-plus-circle"><span> Add</span> </i></button></li>
-          <div class="preloader" id="loading"></div>
-        </ul>
-      </div>
-    </div>
-  </section>
+    <header id="header">
+        <div class="container">
+            <a href="index.html"><img src="assets/img/main/logo.gif" alt="RSS Feed"></a>
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                    <li> <a>RSS Channel:</a><select id="SelectRSS"> </select></li>
+                    <li>
+                        <input type="text" id="SearchInput" name="Test" placeholder="Looking for news?">
+                        <button value="Search" id="SearchBTN" class="button"> <i class="fa fa-search"> <span> Search</span>
+              </i></button>
+                    </li>
+                    <li>
+                        <button value="Update" id="UpdateRSS" class="button"> <i class="fa fa-refresh"> <span> Update</span>
+              </i></button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  <main id="main">
-    <div class="accordion" id="AccordionNews">
-      <div class="card">
-        <div class="card-header" id="headingOne">
-          <h5 class="mb-0">
-            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
-              aria-expanded="true" aria-controls="collapseOne"><i class="fa fa-newspaper-o">&nbsp;</i>
+    <section id="intro">
+        <div class="intro-content">
+            <h2>Welcome to your <span>RSS</span><br> News Feed!</h2>
+            <div>
+                <ul class="addNews">
+                    <li> <input id="insert-url" type="text" placeholder=" Insert a URL here"></li>
+                    <li> <button id="NewRSSBTN" class="button"> <i class="fa fa-plus-circle"><span> Add</span> </i></button></li>
+                    <div class="preloader" id="loading"></div>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <main id="main">
+        <div class="accordion" id="AccordionNews">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"><i class="fa fa-newspaper-o">&nbsp;</i>
               Show All News
             </button>
-          </h5>
-        </div>
-        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#AccordionNews">
-          <div class="card-body">
-            <div class="order-by">
-              <ul>
-                <li> <a> <b>Order By:</b> </a><select id="Selection">
+                    </h5>
+                </div>
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#AccordionNews">
+                    <div class="card-body">
+                        <div class="order-by">
+                            <ul>
+                                <li>
+                                    <a> <b>Order By:</b> </a><select id="Selection">
                     <option value="Title">Title</option>
                     <option value="Date"> Date</option>
                     <option value="Url">URL</option>
                     <option value="Description">Description</option>
                     <option value="Categories">Categories</option>
                   </select>
-                </li>
-              </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="Content"> </div>
+                    </div>
+                </div>
             </div>
-            <div id="Content"> </div>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-header" id="headingTwo">
-          <h5 class="mb-0">
-            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo"
-              aria-expanded="false" aria-controls="collapseTwo"> <i class="fa fa-newspaper-o">&nbsp;</i>
+            <div class="card">
+                <div class="card-header" id="headingTwo">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"> <i class="fa fa-newspaper-o">&nbsp;</i>
               Show Grouped News
             </button>
-          </h5>
+                    </h5>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#AccordionNews">
+                    <div class="card-body" id="ContentGroupedNews">
+                    </div>
+                </div>
+            </div>
         </div>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#AccordionNews">
-          <div class="card-body" id="ContentGroupedNews">
-          </div>
+    </main>
+
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                <a href="https://github.com/The-WebOnes" target="_blank"> <strong>The Web Ones.</strong></a> All Rights Reserved
+            </div>
+            <div class="credits">
+                Web Apps Optimization. <a href="https://www.uady.mx" target="_blank">UADY 2021</a>
+            </div>
         </div>
-      </div>
-    </div>
-  </main>
+    </footer>
 
-  <footer id="footer">
-    <div class="container">
-      <div class="copyright">
-        <a href="https://github.com/The-WebOnes" target="_blank"> <strong>The Web Ones.</strong></a> All Rights Reserved
-      </div>
-      <div class="credits">
-        Web Apps Optimization. <a href="https://www.uady.mx" target="_blank">UADY 2021</a>
-      </div>
-    </div>
-  </footer>
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
-  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-
-  <script src="assets/vendor/jquery/jquery.min.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-  <script src="assets/vendor/wow/wow.min.js"></script>
-  <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
-  <script src="assets/vendor/jquery-sticky/jquery.sticky.js"></script>
-  <script src="assets/vendor/superfish/superfish.min.js"></script>
-  <script src="assets/js/main.js"></script>
+    <script src="assets/vendor/jquery/jquery.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+    <script src="assets/vendor/wow/wow.min.js"></script>
+    <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+    <script src="assets/vendor/jquery-sticky/jquery.sticky.js"></script>
+    <script src="assets/vendor/superfish/superfish.min.js"></script>
+    <script src="assets/js/main.js"></script>
 
 </body>
 

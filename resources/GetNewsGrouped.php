@@ -45,6 +45,6 @@ $feed_id = get_feed_id($con);
 if($feed_id!=-1){
     get_news($feed_id, $con);
 } else {
-    echo "Agregue un rss";
+    echo "-1";
 }     
 ?>	
