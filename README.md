@@ -1,5 +1,5 @@
 # OAW
-### Repo for the Web Apps Optimization class by the PhD Víctor Hugo Menéndez Domínguez
+### In this branch we optimized the client-side by deleting, reducing, minifying JS, CSS and HTML code
 
 ### Team Members:
 
@@ -8,4 +8,4 @@
 | <a href="https://github.com/artrune"> Jorge Arturo Aguilar Solís </a>| <a href="https://github.com/VictorLavalle"> Víctor Manuel Lavalle Cantón</a> | <a href="https://github.com/EberthMezeta"> Eberth Francisco Mezeta Xool </a> |
 
 # Example of how it works
- ![Working](https://raw.githubusercontent.com/The-WebOnes/OAW/main/docs/How%20it%20works.gif)
+ ![Working](https://raw.githubusercontent.com/The-WebOnes/OAW/main/docs/How_It_Works.gif)
