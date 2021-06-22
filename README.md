@@ -1,11 +1,41 @@
 # OAW
-### In this branch we optimized the client-side by deleting, reducing, minifying JS, CSS and HTML code
+### In this branch we optimized the server-side by configuring some Apaches files
 
-### Team Members:
+# Configured Files
+### 📎httpd.conf
+Activate the following lines:
+```
+LoadModule deflate_module modules/mod_deflate.so
+LoadModule filter_module modules/mod_filter.so
+LoadModule expires_module modules/mod_expires.so
+```
+Add the next lines in the file:
+```
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresDefault "access plus 4 weeks"
+</IfModule>
 
-| ![Arturo](https://i.ibb.co/JChr4tN/Arturo.png) | ![Victor](https://i.ibb.co/hXWxtJW/Me.png)| ![Eberth](https://i.ibb.co/Xkv3fMR/Eberth.png)|
-| ----- | ---- | ----- |
-| <a href="https://github.com/artrune"> Jorge Arturo Aguilar Solís </a>| <a href="https://github.com/VictorLavalle"> Víctor Manuel Lavalle Cantón</a> | <a href="https://github.com/EberthMezeta"> Eberth Francisco Mezeta Xool </a> |
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/plain
+AddOutputFilterByType DEFLATE text/html
+AddOutputFilterByType DEFLATE text/xml
+AddOutputFilterByType DEFLATE text/css
+AddOutputFilterByType DEFLATE application/xml
+AddOutputFilterByType DEFLATE application/xhtml+xml
+AddOutputFilterByType DEFLATE application/rss+xml
+AddOutputFilterByType DEFLATE application/javascript
+AddOutputFilterByType DEFLATE application/x-javascript
+</IfModule>
+```
+### 📎php.ini
+Here we active the Gzip compression by adding the following lines in the file
+```
+zlib.output_compression = On
+zlib.output_compression_level = 9
+allow_url_fopen = On  
+```
+### ♻️ Once done restart the Apache server.
 
 # Example of how it works
  ![Working](https://raw.githubusercontent.com/The-WebOnes/OAW/main/docs/How_It_Works.gif)
