@@ -20,10 +20,13 @@ The important branches are:
 <ol>
  <li>Import the database located on the folder "resources"</li>
  <li>If it's the case, configure the database connection</li>
- <li>Move the project to your server folder</li>
+ <li>Move the project to your server folder, if you clone it you can move between the branches to test it</li>
  <li>Once open on your server, just copy & paste the link of your favorite RSS News Channel </li>
  <li>Enjoy :)</li>
 </ol>
 
 # 💻 Example of how it works
- ![Working](https://raw.githubusercontent.com/The-WebOnes/OAW/main/docs/How_It_Works.gif)
+
+### 📌 Here's a <a href="http:victorlavalle.me/RSS/" target="_BLANK">demo</a>
+
+![Working](https://raw.githubusercontent.com/The-WebOnes/OAW/main/docs/How_It_Works.gif)
